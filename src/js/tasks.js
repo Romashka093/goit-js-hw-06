@@ -30,6 +30,7 @@ const getUsersWithGender = (users, gender) => {
   return usersWithGender.map(user => {
     return user.name;
   });
+   // return users.filter(user => user.gender === gender).map(user => user.name);
 };
 console.log(getUsersWithGender(users, "male"));
 // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
@@ -56,6 +57,7 @@ const getUserWithEmail = (users, email) => {
     return user.email === email;
   });
   return userEmail;
+  // return users.find(user => user.email === email);
 };
 console.log(getUserWithEmail(users, "shereeanthony@kog.com")); // {объект пользователя Sheree Anthony}
 console.log(getUserWithEmail(users, "elmahead@omatom.com")); // {объект пользователя Elma Head}
@@ -69,6 +71,7 @@ const getUsersWithAge = (users, min, max) => {
     return user.age > min && user.age < max;
   });
   return usersWithAge;
+  // return users.filter(user => user.age > min && user.age < max);
 };
 console.log(getUsersWithAge(users, 20, 30));
 // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
@@ -97,6 +100,11 @@ const getUsersWithFriend = (users, friendName) => {
     })
   );
   return usersWithFriend.map(user => user.name);
+  // const userFriends = users.reduce((arr, { name, friends }) => {
+  //   friends.includes(friendName) ? (arr = [...arr, name]) : arr;
+  //   return arr;
+  // }, []);
+  // return userFriends;
 };
 console.log(getUsersWithFriend(users, "Briana Decker")); // [ 'Sharlene Bush', 'Sheree Anthony' ]
 console.log(getUsersWithFriend(users, "Goldie Gentry")); // [ 'Elma Head', 'Sheree Anthony' ]
